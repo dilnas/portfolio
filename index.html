@@ -7,10 +7,8 @@
 <meta name="description" content="Dilnas Kasim, Senior Production Technician (SCADA & Automation). Siemens TIA Portal, WinCC, S7-1200/1500. Dammam, Saudi Arabia. Open to relocation in the EU and GCC.">
 <meta name="color-scheme" content="light">
 <style>
-@property --k{syntax:"<number>";inherits:true;initial-value:0}
 :root{--paper:#efeee9;--bright:#f2f0e9;--ink:#090909;--grey:#d7d7d2;--line:#09090933;--mute:#10100f7a;--signal:#ed533b;--green:#8fc31f;--lime:#d8ed42;--pad:clamp(1.25rem,4vw,4.5rem);--ease:cubic-bezier(.22,1,.36,1);--ease-io:cubic-bezier(.65,0,.35,1);--serif:"Iowan Old Style",Baskerville,"Times New Roman",serif;--mono:ui-monospace,"Source Code Pro",SFMono-Regular,Menlo,Consolas,monospace}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Arial,"Helvetica Neue",sans-serif}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
@@ -26,13 +24,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-off
 .menu-btn i::before{content:"";width:8px;height:3px;border-block:1px solid var(--ink)}
 
 /* overlay menu */
-.overlay{position:fixed;inset:0;z-index:30;background:var(--paper);display:grid;align-content:center;padding:0 var(--pad);opacity:0;visibility:hidden;transition:opacity .42s var(--ease),visibility 0s .42s}
-.overlay.open{opacity:1;visibility:visible;transition:opacity .42s var(--ease)}
+.overlay{position:fixed;inset:0;z-index:30;background:var(--paper);display:grid;align-content:center;padding:0 var(--pad);opacity:0;visibility:hidden}
+.overlay.open{opacity:1;visibility:visible}
 .overlay .x{position:absolute;top:26px;right:var(--pad)}
-.overlay nav a{display:flex;gap:24px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;font:300 clamp(1.8rem,6vw,4.5rem)/1.1 var(--serif);letter-spacing:.02em;transform:translateY(1.25rem);opacity:0;transition:transform .9s var(--ease),opacity .9s var(--ease),color .3s}
+.overlay nav a{display:flex;gap:24px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;font:300 clamp(1.8rem,6vw,4.5rem)/1.1 var(--serif);letter-spacing:.02em;}
 .overlay nav a small{font:.65rem var(--mono);letter-spacing:.18em;color:var(--mute)}
-.overlay.open nav a{transform:none;opacity:1}
-.overlay.open nav a:nth-child(2){transition-delay:.06s}.overlay.open nav a:nth-child(3){transition-delay:.12s}.overlay.open nav a:nth-child(4){transition-delay:.18s}.overlay.open nav a:nth-child(5){transition-delay:.24s}
 .overlay nav a:hover{color:var(--signal)}
 
 /* statements */
@@ -45,11 +41,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-off
 .ln.m{font-family:var(--mono);font-weight:300;letter-spacing:-.04em}
 .ln.s{font-family:var(--serif);font-style:italic;font-weight:400}
 .ln.r{font-family:var(--serif);font-weight:400;letter-spacing:-.03em}
-.w{display:inline-block;white-space:nowrap}
-.l{display:inline-block;white-space:pre}
-.js .l{--k:1;--x:0px;--y:0px;--r:0deg;transform:translate(calc(var(--x)*var(--k)),calc(var(--y)*var(--k))) rotate(calc(var(--r)*var(--k)));opacity:calc(1 - var(--k));text-shadow:calc(var(--x)*var(--k)*.07) calc(var(--y)*var(--k)*.07) 0 rgba(0,0,0,.30),calc(var(--x)*var(--k)*.14) calc(var(--y)*var(--k)*.14) 0 rgba(0,0,0,.20),calc(var(--x)*var(--k)*.21) calc(var(--y)*var(--k)*.21) 0 rgba(0,0,0,.12),calc(var(--x)*var(--k)*.28) calc(var(--y)*var(--k)*.28) 0 rgba(0,0,0,.06);transition:--k 1.5s var(--ease) var(--dl,0s)}
-.js .stmt.in .l{--k:0}
-
 /* content blocks */
 .block{padding:clamp(56px,8vw,104px) var(--pad);border-bottom:1px solid var(--line)}
 .block>.mono{display:block;color:var(--mute);margin-bottom:40px}
@@ -61,8 +52,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-off
 .item p,.item li{font:.8rem/1.8 var(--mono);color:var(--mute);margin:0 0 8px}
 .item ul{margin:0;padding-left:1.1em}
 .item .tags{font:.62rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
-[data-r]{transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.js [data-r]:not(.in){opacity:0;transform:translateY(1.25rem)}
 .big{font:300 clamp(1.4rem,3vw,2.4rem)/1.5 var(--serif);max-width:30em;margin:0}
 .big i{color:var(--signal);font-style:normal;padding:0 .4em}
 blockquote{margin:0;max-width:34em;font:400 clamp(1.2rem,2.6vw,1.9rem)/1.4 var(--serif)}
@@ -73,8 +62,7 @@ cite{display:block;margin-top:16px;font-style:normal}
 
 /* closing */
 .close{padding:clamp(48px,7vw,96px) var(--pad) 64px;border-bottom:1px solid var(--line)}
-.close .rule{height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease-io);margin-bottom:40px}
-.close.in .rule{transform:none}
+.close .rule{height:1px;background:var(--ink);margin-bottom:40px}
 .close p.sm{font-size:.85rem;color:var(--mute);margin:0 0 20px}
 .close h2{font:400 clamp(2.4rem,7vw,6.5rem)/1.05 var(--serif);letter-spacing:-.04em;margin:0}
 .close h2:first-of-type{color:#10110f8a}
@@ -87,16 +75,6 @@ footer .end{text-align:right}
 footer button{background:none;border:0;color:inherit;cursor:pointer;padding:0;text-align:left}
 .top{position:fixed;right:20px;bottom:20px;z-index:15;width:30px;height:30px;border:1px solid var(--ink);border-radius:50%;background:var(--paper);cursor:pointer;font-size:.8rem}
 
-/* cursor: white elements with difference blend = black on light, white on dark */
-.cur{position:fixed;left:0;top:0;z-index:200;pointer-events:none;mix-blend-mode:difference;background:#fff;border-radius:50%;opacity:0;transition:opacity .3s}
-.cur.on{opacity:1}
-.cur-dot{width:8px;height:8px;margin:-4px 0 0 -4px}
-.cur-ring{width:38px;height:38px;margin:-19px 0 0 -19px;background:none;border:1px solid #fff;transition:opacity .3s,width .42s var(--ease),height .42s var(--ease),margin .42s var(--ease),background .3s}
-.cur-ring.hov{width:72px;height:72px;margin:-36px 0 0 -36px;background:#fff}
-.cur-ring.down{width:26px;height:26px;margin:-13px 0 0 -13px}
-.cur-t{width:6px;height:6px;margin:-3px 0 0 -3px}
-.cursor-on,.cursor-on *{cursor:none!important}
-@media (hover:none),(pointer:coarse){.cur{display:none}}
 /* swarm build: own implementation of the "cursors build the page" idea */
 .sw-on [data-swt]{transition:opacity .6s var(--ease)!important}
 .sw-on .sw-hide{opacity:0!important}
@@ -110,29 +88,10 @@ footer button{background:none;border:0;color:inherit;cursor:pointer;padding:0;te
 .sw-bar{position:fixed;z-index:310;left:50%;bottom:20px;transform:translateX(-50%);display:flex;gap:20px;align-items:center;padding:10px 18px;background:#090909;color:#f2f0e9;font:.62rem var(--mono);letter-spacing:.14em;text-transform:uppercase}
 .sw-bar button{background:none;border:0;border-bottom:1px solid currentColor;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;padding:0}
 footer .acts{display:flex;gap:24px;flex-wrap:wrap}
-/* loader */
-.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;align-content:center;gap:20px;background:#090909;color:#f2f0e9;transition:opacity .42s var(--ease)}
-.loader.out{opacity:0;pointer-events:none}
-.loader svg{width:clamp(9rem,22vw,14rem);fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:square}
-.loader path{stroke-dasharray:1;stroke-dashoffset:1}
-.loader span{opacity:0;transform:translateY(.6rem);font:.72rem var(--mono);letter-spacing:.2em}
-.loader.run path{animation:draw .52s var(--ease-io) forwards}
-.loader.run path:nth-child(2){animation-delay:.48s;animation-duration:.42s}
-.loader.run path:nth-child(3){animation-delay:.85s;animation-duration:.34s}
-.loader.run span{animation:word-in .22s var(--ease) 1.13s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes word-in{to{opacity:1;transform:none}}
-
 @media (max-width:760px){.side{display:none}.item{grid-template-columns:1fr}footer{grid-template-columns:1fr;text-align:left}footer .mid,footer .end{text-align:left}.bar{height:64px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.loader{display:none}.js .l{transition:none;--k:0!important}[data-r],.overlay,.overlay nav a,.close .rule{transition:none}.js [data-r]:not(.in){opacity:1;transform:none}.close .rule{transform:none}}
 </style>
 </head>
 <body>
-<div class="loader run" aria-hidden="true">
-  <svg viewBox="0 0 120 80"><path pathLength="1" d="M10 10V70H30C58 70 58 10 30 10Z"/><path pathLength="1" d="M78 10V70M78 42L106 10"/><path pathLength="1" d="M86 36L108 70"/></svg>
-  <span>DILNAS KASIM</span>
-</div>
-
 <header class="bar">
   <a class="brand" href="#top" aria-label="Dilnas Kasim, home">
     <svg viewBox="0 0 46 28" aria-hidden="true"><path d="M1 27V1h16v26M17 27V11h8v16M25 27V11h10v16"/></svg>
@@ -189,77 +148,77 @@ footer .acts{display:flex;gap:24px;flex-wrap:wrap}
 </div>
 
 <section class="block" id="intro">
-  <span class="mono" data-r>About</span>
-  <div class="item" data-r>
+  <span class="mono">About</span>
+  <div class="item">
     <div class="l1"><b>Dilnas Kasim</b>Senior Production Technician<br>SCADA &amp; Automation</div>
     <div><p>5+ years in industrial automation. Siemens TIA Portal, WinCC and S7-1200/1500 PLCs on packaging and chemical-dosing lines. Production Foreman at Saveto Group, Dammam.</p><span class="tags">Open to relocation / EU &middot; GCC</span></div>
   </div>
 </section>
 
 <section class="block" id="experience">
-  <span class="mono" data-r>Experience</span>
-  <article class="item" data-r>
+  <span class="mono">Experience</span>
+  <article class="item">
     <div class="l1"><b>Buildora Materials</b>Aug 2026 &ndash; Present<br>Dubai, UAE &middot; Remote</div>
     <div><h3>Co-Founder</h3><p>Co-running a building-materials business. Built its daily LinkedIn posting automation and ran a full SEO audit and fix pass on the website.</p><span class="tags">Automation / SEO / Business</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>Saveto Group</b>May 2026 &ndash; Present<br>Dammam, Saudi Arabia</div>
     <div><h3>Senior Production Technician, SCADA &amp; Automation</h3>
       <p>Promoted to Production Foreman. Previously SCADA Production Technician here (Nov 2022 &ndash; May 2026).</p>
       <ul><li>Program, modify and maintain Siemens S7-1200/1500 PLC logic via TIA Portal for packaging and chemical-dosing lines.</li><li>Operated and programmed Fuji Ace robotic bag-layering systems on 12-hour shifts, hitting 60-bag-per-pallet precision targets.</li></ul>
       <span class="tags">TIA Portal / WinCC / S7-1200 / S7-1500 / SCADA</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>SFO Technologies</b>Feb &ndash; Jul 2022<br>Ernakulam, India &middot; Apprenticeship</div>
     <div><h3>PCB Soldering Stencil Designer</h3><p>Designed SMT soldering stencils from Gerber files and PCB layouts using Altium Designer, CAM350 and Gerber viewers.</p><span class="tags">Altium / CAM350 / Gerber / PCB</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>O/E/N India Ltd.</b>Jan 2021 &ndash; Feb 2022<br>Ernakulam, India</div>
     <div><h3>Quality Assurance Technician</h3><p>Tested and inspected aerospace-grade electromechanical components (relays, switches, flashers and actuators) to MIL standards.</p><span class="tags">QA / Switchgear / Low-voltage</span></div>
   </article>
 </section>
 
 <section class="block" id="projects">
-  <span class="mono" data-r>Projects</span>
-  <article class="item" data-r>
+  <span class="mono">Projects</span>
+  <article class="item">
     <div class="l1"><b>Buildora</b>Automation</div>
     <div><h3>LinkedIn Automation</h3><p>Daily poster that writes product-grounded LinkedIn posts, keeps a no-repeat log, and generates card images through Cloudflare.</p><span class="tags">Automation / Cloudflare</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>HP4105</b>Hardware bring-up</div>
     <div><h3>Armbian Port</h3><p>Ruled out the SD/USB u-boot.ext route with evidence and identified the usbdl exploit as the remaining path on an Android box.</p><span class="tags">Embedded / U-Boot / Armbian</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>KMCT College of Engineering</b>College project</div>
     <div><h3>Automatic Attendant System Using AI</h3><p>Digital attendance that replaces manual roll-calls.</p><span class="tags">AI / Embedded</span></div>
   </article>
-  <article class="item" data-r>
+  <article class="item">
     <div class="l1"><b>KMCT College of Engineering</b>College project</div>
     <div><h3>Supercapacitor</h3><p>Study of a high-performance component that stores and releases electrical energy.</p><span class="tags">Electronics / Energy storage</span></div>
   </article>
 </section>
 
 <section class="block" id="skills">
-  <span class="mono" data-r>Skills</span>
-  <p class="big" data-r>Siemens TIA Portal<i>/</i>WinCC<i>/</i>S7-1200 &amp; 1500<i>/</i>SCADA<i>/</i>PLC programming<i>/</i>Robotics<i>/</i>Troubleshooting<i>/</i>Leadership<i>/</i>PCB design<i>/</i>Linux<i>/</i>Python</p>
+  <span class="mono">Skills</span>
+  <p class="big">Siemens TIA Portal<i>/</i>WinCC<i>/</i>S7-1200 &amp; 1500<i>/</i>SCADA<i>/</i>PLC programming<i>/</i>Robotics<i>/</i>Troubleshooting<i>/</i>Leadership<i>/</i>PCB design<i>/</i>Linux<i>/</i>Python</p>
 </section>
 
 <section class="block" id="education">
-  <span class="mono" data-r>Education &amp; certification</span>
-  <article class="item" data-r><div class="l1"><b>NIELIT</b>Oct &ndash; Nov 2025</div><div><h3>Industrial Automation with PLC and SCADA</h3><span class="tags">Industrial engineering / Automation</span></div></article>
-  <article class="item" data-r><div class="l1"><b>AICTE</b>Jan &ndash; Apr 2024</div><div><h3>Manufacturing Processes and Technology</h3><span class="tags">Robotics</span></div></article>
-  <article class="item" data-r><div class="l1"><b>LinkedIn Learning</b>Nov 2025</div><div><h3>Learning Industrial Automation</h3><span class="tags">PLC / Industrial automation</span></div></article>
+  <span class="mono">Education &amp; certification</span>
+  <article class="item"><div class="l1"><b>NIELIT</b>Oct &ndash; Nov 2025</div><div><h3>Industrial Automation with PLC and SCADA</h3><span class="tags">Industrial engineering / Automation</span></div></article>
+  <article class="item"><div class="l1"><b>AICTE</b>Jan &ndash; Apr 2024</div><div><h3>Manufacturing Processes and Technology</h3><span class="tags">Robotics</span></div></article>
+  <article class="item"><div class="l1"><b>LinkedIn Learning</b>Nov 2025</div><div><h3>Learning Industrial Automation</h3><span class="tags">PLC / Industrial automation</span></div></article>
 </section>
 
 <section class="block">
-  <span class="mono" data-r>Recommendation</span>
-  <blockquote data-r>&ldquo;He is professional, reliable, and demonstrates strong work ethics and a positive attitude. He is a great team player and consistently delivers quality results.&rdquo;
+  <span class="mono">Recommendation</span>
+  <blockquote>&ldquo;He is professional, reliable, and demonstrates strong work ethics and a positive attitude. He is a great team player and consistently delivers quality results.&rdquo;
     <cite class="mono" style="color:var(--mute)">Senior Production Engineer, direct manager, Dec 2025</cite></blockquote>
 </section>
 
 <section class="block">
-  <span class="mono" data-r>Palette</span>
-  <div class="palette" data-r>
+  <span class="mono">Palette</span>
+  <div class="palette">
     <div style="background:#efeee9">Paper<small>#efeee9</small></div>
     <div style="background:#d7d7d2">Grey<small>#d7d7d2</small></div>
     <div style="background:#090909;color:#efeee9">Ink<small>#090909</small></div>
@@ -282,7 +241,7 @@ footer .acts{display:flex;gap:24px;flex-wrap:wrap}
 </main>
 
 <footer class="mono">
-  <span class="acts"><button id="replay" type="button">Replay overture &#8635;</button><button id="swarmBtn" type="button">Swarm build &#10033;</button></span>
+  <span class="acts"><button id="swarmBtn" type="button">Swarm build &#10033;</button></span>
   <span class="mid">Dammam, Saudi Arabia</span>
   <span class="end">&copy; 2026 &middot; EN / AR (limited)</span>
 </footer>
@@ -290,86 +249,12 @@ footer .acts{display:flex;gap:24px;flex-wrap:wrap}
 
 <script>
 (function(){
-  var d=document.documentElement,loader=document.querySelector('.loader');
-  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  /* menu works without animation support */
   var ov=document.getElementById('overlay'),mb=document.getElementById('menuBtn'),cb=document.getElementById('closeBtn');
   function menu(o){ov.classList.toggle('open',o);ov.setAttribute('aria-hidden',!o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';(o?cb:mb).focus()}
   mb.onclick=function(){menu(true)};cb.onclick=function(){menu(false)};
   ov.querySelectorAll('a').forEach(function(a){a.onclick=function(){menu(false)}});
   addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
   document.getElementById('toTop').onclick=function(){scrollTo({top:0})};
-
-  if(rm||!('IntersectionObserver' in window)||!CSS.supports('transition-property','--k')){if(loader)loader.remove();return}
-  d.classList.add('js');
-
-  /* split statements into words and letters with random fly-in vectors */
-  var stmts=[].slice.call(document.querySelectorAll('.stmt'));
-  function r(a,b){return a+Math.random()*(b-a)}
-  stmts.forEach(function(s){
-    var n=0;
-    s.querySelectorAll('.ln').forEach(function(ln,li){
-      var txt=ln.textContent;ln.textContent='';ln.setAttribute('aria-hidden','true');
-      txt.split(' ').forEach(function(word,wi,arr){
-        var w=document.createElement('span');w.className='w';
-        word.split('').forEach(function(ch){
-          var l=document.createElement('span');l.className='l';l.textContent=ch;
-          l.style.setProperty('--x',((Math.random()<.5?-1:1)*r(120,520)).toFixed(0)+'px');
-          l.style.setProperty('--y',((Math.random()<.5?-1:1)*r(80,300)).toFixed(0)+'px');
-          l.style.setProperty('--r',((Math.random()<.5?-1:1)*r(90,540)).toFixed(0)+'deg');
-          l.style.setProperty('--dl',(li*.12+n*.03).toFixed(2)+'s');n++;
-          w.appendChild(l)});
-        ln.appendChild(w);
-        if(wi<arr.length-1)ln.appendChild(document.createTextNode(' '));
-      });
-    });
-  });
-
-  var io=new IntersectionObserver(function(es){es.forEach(function(x){
-    if(!x.isIntersecting)return;
-    var t=x.target;
-    if(t===stmts[0]&&!d.classList.contains('ready')){return}
-    t.classList.add('in');io.unobserve(t)})},{threshold:.2});
-  var items=[].slice.call(document.querySelectorAll('[data-r],.close'));
-  stmts.concat(items).forEach(function(e){io.observe(e)});
-
-  function overture(){
-    loader.classList.remove('out','run');void loader.offsetWidth;loader.style.display='';loader.classList.add('run');
-    setTimeout(function(){
-      loader.classList.add('out');d.classList.add('ready');
-      stmts.forEach(function(s){io.unobserve(s);io.observe(s)});
-    },1500);
-  }
-  d.classList.remove('ready');overture();
-
-  document.getElementById('replay').onclick=function(){
-    scrollTo({top:0,behavior:'instant'});
-    stmts.forEach(function(s){s.classList.remove('in')});
-    d.classList.remove('ready');overture();
-  };
-})();
-</script>
-<script>
-(function(){
-  if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  var b=document.body,mk=function(c){var e=document.createElement('div');e.className='cur '+c;e.setAttribute('aria-hidden','true');b.appendChild(e);return e};
-  var trail=[];for(var i=0;i<6;i++){var t=mk('cur-t');t.style.setProperty('--o',(.5-i*.08).toFixed(2));trail.push({e:t,x:0,y:0})}
-  var ring=mk('cur-ring'),dot=mk('cur-dot'),mx=-100,my=-100,rx=-100,ry=-100,seen=false;
-  addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!seen){seen=true;rx=mx;ry=my;trail.forEach(function(t){t.x=mx;t.y=my});[ring,dot].concat(trail.map(function(t){return t.e})).forEach(function(n){n.classList.add('on')});b.classList.add('cursor-on')}});
-  document.addEventListener('mouseleave',function(){[ring,dot].concat(trail.map(function(t){return t.e})).forEach(function(n){n.classList.remove('on')})});
-  document.addEventListener('mouseenter',function(){if(seen)[ring,dot].concat(trail.map(function(t){return t.e})).forEach(function(n){n.classList.add('on')})});
-  addEventListener('mousedown',function(){ring.classList.add('down')});
-  addEventListener('mouseup',function(){ring.classList.remove('down')});
-  addEventListener('mouseover',function(e){ring.classList.toggle('hov',!!e.target.closest('a,button,.item'))});
-  (function loop(){
-    rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
-    dot.style.transform='translate('+mx+'px,'+my+'px)';
-    ring.style.transform='translate('+rx+'px,'+ry+'px)';
-    var px=rx,py=ry;
-    trail.forEach(function(t,i){t.x+=(px-t.x)*.35;t.y+=(py-t.y)*.35;t.e.style.transform='translate('+t.x+'px,'+t.y+'px)';t.e.style.opacity=seen?(.5-i*.08):0;px=t.x;py=t.y});
-    requestAnimationFrame(loop);
-  })();
 })();
 </script>
 <script>
@@ -413,7 +298,6 @@ footer .acts{display:flex;gap:24px;flex-wrap:wrap}
   function reveal(el){
     if(!el.classList.contains('sw-hide'))return;
     el.classList.remove('sw-hide');
-    if(el.classList.contains('stmt')){el.classList.remove('in');void el.offsetWidth;setTimeout(function(){el.classList.add('in')},60)}
   }
 
   function start(){
@@ -463,6 +347,7 @@ footer .acts{display:flex;gap:24px;flex-wrap:wrap}
     setTimeout(function(){d.classList.remove('sw-on');L.els.forEach(function(e){e.removeAttribute('data-swt')})},700);
   }
   btn.onclick=start;
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('load',function(){setTimeout(start,300)});
   addEventListener('keydown',function(e){if(e.key==='Escape')stop()});
 })();
 </script>
